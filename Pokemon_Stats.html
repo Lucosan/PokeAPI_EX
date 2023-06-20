@@ -135,13 +135,23 @@
       }
 
       function setStats({stats:{0:health, 1:attack, 2:defense, 3:special_atk, 4:special_def, 5:speed}}) {
-        qS('#health').textContent = health.base_stat;
-        qS('#att').textContent = attack.base_stat;
-        qS('#def').textContent = defense.base_stat;
-        qS('#special_att').textContent = special_atk.base_stat;
-        qS('#special_def').textContent = special_def.base_stat;
-        qS('#speed').textContent = speed.base_stat;
-        // TODO com a sintaxe que desestrutura o objeto e preenche o resto da tela
+       const stats = {
+        hp: health.base_stat,
+        att: attack.base_stat,
+        def: defense.base_stat,
+        spe_att: special_atk.base_stat,
+        spe_def: special_def.base_stat,
+        spd: speed.base_stat
+      };
+
+      const {hp, att, def, spe_att, spe_def, spd} = stats;
+
+      qS('#health').innerHTML = hp;
+      qS('#att').innerHTML = att;
+      qS('#def').innerHTML = def;
+      qS('#special_att').innerHTML = spe_att;
+      qS('#special_def').innerHTML = spe_def;
+      qS('#speed').innerHTML = spd;
       }
 
       function cleanPokemonData() {
